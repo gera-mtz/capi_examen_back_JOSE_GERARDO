@@ -14,12 +14,12 @@ class CreateTableUserDomicilio extends Migration
     public function up()
     {
         Schema::create('user_domicilio', function (Blueprint $table) {
-            $table->id('user_id');
+            $table->id();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('domicilio');
             $table->integer('numero_exterior');
             $table->string('colonia');
             $table->string('ciudad');
-
         });
     }
 

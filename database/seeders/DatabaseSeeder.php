@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\user_domicilio::factory(100)->create()->for( function ($ud){
+            $user = \App\Models\User::factory()->create();
+            $ud->user()->save($user);
+        });
     }
 }
